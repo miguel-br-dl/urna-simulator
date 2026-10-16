@@ -172,6 +172,12 @@ button {
   text-align: center;
 }
 
+@media (orientation: landscape) {
+  .ajuda-mobile {
+    display: none;
+  }
+}
+
 .aviso-orientacao {
   position: fixed;
   z-index: 10;
@@ -250,6 +256,28 @@ body.mostrar-orientacao .aplicacao {
   .instrucoes {
     max-width: none;
     text-align: left;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 900px) {
+  .aplicacao {
+    display: flex;
+    align-items: center;
+    min-height: 100dvh;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .cabecalho,
+  .ajuda-mobile {
+    display: none;
+  }
+
+  .urna-area {
+    width: 100%;
+  }
+
+  .urna-stage {
+    width: min(100%, calc((100dvh - 0.7rem) * 1.5));
   }
 }
 
