@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111a25" />
+    <meta
+      name="description"
+      content="Simulador interativo de urna eletrônica feito com HTML, CSS e JavaScript."
+    />
+    <title>Simulador de urna eletrônica</title>
+    <link rel="preload" as="image" href="assets/otimizados/base0.webp" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="aviso-orientacao" id="aviso-orientacao" role="status" aria-hidden="true">
+      <div class="aviso-orientacao__cartao">
+        <div class="icone-girar" aria-hidden="true">↻</div>
+        <h1>Gire o celular</h1>
+        <p>Vire o aparelho para a posição horizontal para usar a urna.</p>
+        <span>Aguardando a rotação...</span>
+      </div>
+    </div>
+
+    <main class="aplicacao">
+      <section class="urna-area" aria-label="Simulador de urna eletrônica">
+        <div class="urna-stage" id="urna-stage">
+          <picture>
+            <source id="fonte-imagem-urna" srcset="assets/otimizados/base0.webp" type="image/webp" />
+            <img
+              id="imagem-urna"
+              src="assets/base0.png"
+              alt="Urna eletrônica com visor vazio e teclado numérico"
+              width="1536"
+              height="1024"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
+
+          <div class="visor-digitos" aria-live="polite" aria-label="Números digitados">
+            <span class="visor-digito" id="digito-1"></span>
+            <span class="visor-digito" id="digito-2"></span>
+          </div>
+
+          <div class="camada-interacao" aria-label="Teclado da urna">
+            <button class="tecla tecla-numero tecla-1" type="button" data-digito="1" aria-label="Número 1"></button>
+            <button class="tecla tecla-numero tecla-2" type="button" data-digito="2" aria-label="Número 2"></button>
+            <button class="tecla tecla-numero tecla-3" type="button" data-digito="3" aria-label="Número 3"></button>
+            <button class="tecla tecla-numero tecla-4" type="button" data-digito="4" aria-label="Número 4"></button>
+            <button class="tecla tecla-numero tecla-5" type="button" data-digito="5" aria-label="Número 5"></button>
+            <button class="tecla tecla-numero tecla-6" type="button" data-digito="6" aria-label="Número 6"></button>
+            <button class="tecla tecla-numero tecla-7" type="button" data-digito="7" aria-label="Número 7"></button>
+            <button class="tecla tecla-numero tecla-8" type="button" data-digito="8" aria-label="Número 8"></button>
+            <button class="tecla tecla-numero tecla-9" type="button" data-digito="9" aria-label="Número 9"></button>
+            <button class="tecla tecla-numero tecla-0" type="button" data-digito="0" aria-label="Número 0"></button>
+
+            <button class="tecla tecla-acao tecla-branco" type="button" aria-label="Branco"></button>
+            <button class="tecla tecla-acao tecla-corrige" type="button" id="botao-corrige" aria-label="Corrige"></button>
+            <button class="tecla tecla-acao tecla-confirma" type="button" id="botao-confirma" aria-label="Confirma"></button>
+          </div>
+        </div>
+
+        <p class="ajuda-mobile">No celular, use a posição horizontal para visualizar melhor a urna.</p>
+      </section>
+    </main>
+
+    <audio id="som-clique" preload="auto" src="assets/urnaclic.mp3"></audio>
+    <audio id="som-confirma" preload="metadata" src="assets/confirma-urna.mp3"></audio>
+    <audio id="som-erro" preload="metadata" src="assets/gemidao.mp3"></audio>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
